@@ -1,0 +1,46 @@
+//to check whether in a array subsequence exist whose bitwise AND would be the target element 
+[ 1 2 3 4 13 6 7 8 9 ]
+so 7 and 13 = 5 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	  int n,k;
+	  cin>>n>>k;
+	  vector<int> arr;
+	  for(int i=0;i<n;i++){
+	      int a;
+	      cin>>a;
+        
+        // to check that element has set bit as target element or not 
+	      if((a&k) == k){
+	          arr.push_back(a);
+	      }
+	  }
+	  
+	    if(arr.empty()){
+	        cout<<"NO"<<endl;
+	        continue;
+	    }
+      
+	    int l=*arr.begin();
+	    for(int i=0;i<arr.size();i++){
+	        l&=arr[i];
+	    }
+      
+	    if(l==k){
+	        cout<<"YES"<<endl;
+	    }else{
+	        cout<<"NO"<<endl;
+	    }
+	  
+	  
+	  
+	}
+	return 0;
+}
