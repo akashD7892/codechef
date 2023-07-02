@@ -1,0 +1,41 @@
+Start96 
+
+Q. swap the elements of the array which have atlest distance k wiht each other
+
+Problem - swapping it not a big deal but intutition is that we have to keep track of those elments which can be swapped as 
+two ele can only be swapped when they have atleast k distance . 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,k;
+	    cin>>n>>k ;
+	    vector<int>a(n),v,p ;
+	    
+	    for( int i=0; i<n; i++ ){
+	        cin>>a[i]; 
+
+         // keeping indexes and values which are k dis apart and ele after k dist would have ele to be swapped.
+	        if( n-1-i >= k || i >= k )
+	         p.push_back(i), v.push_back(a[i]) ;
+	    }
+
+     // to lexically smallest 
+	    sort(v.begin(), v.end());
+	    
+	    for( int j=0; j<p.size(); j++ ){
+	        a[p[j]] = v[j] ;
+	    }
+	    
+	    for( int i=0; i<n; i++ ){
+	        cout<< a[i] << " ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
