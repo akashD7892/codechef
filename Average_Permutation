@@ -1,0 +1,49 @@
+Q. Arrange the array in such a way the sum of the 3 elements consecutively of all the elements must be minimum 
+
+n = 5 
+
+ans ----  5 1 2 3 4   1. 5+1+2  2.1+2+3  3.2+3+4
+not ----- 1 2 3 4 5 
+
+Note:- the thing to be noted that the the ele at the end and at the first position will be used once then ele at 2nd position and second last used twice and other 3 .
+So accordingly we have to kept highest numbers extreme left and right by decreasing numbers.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t ;
+	while(t--){
+	    int n ;
+	    cin>>n ;
+	    
+	    int arr[n] ;
+	    int i=0,j=n-1 ;
+	    
+	    int m = n ;
+	    bool flg = true;
+	    
+	    while( i <= j ){
+	      
+	       if( flg ){
+	        arr[i] = m-- ;
+	        i++;
+	       }
+	       else {
+	           arr[j] = m--;
+	           j--;
+	       }
+	       
+	       flg = !flg ;
+	        
+	    }
+	    for( auto it: arr )
+	     cout<<it<<" ";
+	     
+	    cout<<endl;
+	}
+	return 0;
+}
