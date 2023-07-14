@@ -1,0 +1,20 @@
+int find(int n ){
+    if( n == 0 )
+     return 0;
+     
+    int val = n%10;
+    if( val == 0 )
+     val = 5 ;
+     
+    return find(n/10)*10+val ;
+}
+int convertFive(int n) {
+    // Your code here
+    if( n == 0 )
+     return 5 ;
+    else {
+        n = find(n);
+    }
+    
+    return n;
+}
