@@ -1,0 +1,24 @@
+class Solution{
+	public:
+	int NthRoot(int n, int m)
+	{
+	    // Code here.
+---------------------------------------------using binary search----------------------------------------------------------------------------------------------------
+	    long long i =0;
+	    long long j = INT_MAX ;
+	    
+	    while( i<= j )
+	    {
+	        long long mid = i+(j-i)/2 ;
+	        
+	        if( pow(mid,n) == m )
+	         return mid ;
+	        else if( pow(mid,n) < m )
+	         i =mid+1 ;
+	        else 
+	         j = mid-1 ;
+	    }
+	    
+	    return -1 ;
+	}  
+};
